@@ -51,5 +51,4 @@ client.on("message", async message => {
 
 });
 
-
-client.login(process.inv.token)
+client.login(botconfig.token)
