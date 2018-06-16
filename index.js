@@ -78,11 +78,11 @@ client.on("message", async message => {
   }
 
 
-
   if(cmd === `${prefix}botinfo`){
 
     let bicon = bot.user.displayAvatarURL;
     let botembed = new Discord.RichEmbed()
+
     .setDescription("Bot Information")
     .setColor("#15f153")
     .setThumbnail(bicon)
