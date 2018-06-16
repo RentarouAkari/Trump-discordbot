@@ -43,18 +43,6 @@ client.on("message", async message => {
   const args = message.content.slice(botconfig.prefix.length).trim().split(/ +/g);
   const command = args.shift().toLowerCase();
 
-  if(command === "ping") {
-    // Calculates ping between sending a message and editing it, giving a nice round-trip latency.
-    // The second ping is an average latency between the bot and the websocket server (one-way, not round-trip)
-    const m = await message.channel.send("Ping?");
-    m.edit(`Pong! Latency is ${m.createdTimestamp - message.createdTimestamp}ms. API Latency is ${Math.round(client.ping)}ms`);
-  }
-
-});
-
-
-
-client.on("message", async message => {
   if(message.author.bot) return;
   if(message.channel.type === "dm") return;
 
@@ -62,6 +50,15 @@ client.on("message", async message => {
   let messageArray = message.content.split(" ");
   let cmd = messageArray[0];
   let args = messageArray.slice(1);
+
+
+  if(command === "ping") {
+    // Calculates ping between sending a message and editing it, giving a nice round-trip latency.
+    // The second ping is an average latency between the bot and the websocket server (one-way, not round-trip)
+    const m = await message.channel.send("Ping?");
+    m.edit(`Pong! Latency is ${m.createdTimestamp - message.createdTimestamp}ms. API Latency is ${Math.round(client.ping)}ms`);
+  }
+
 
   if(cmd === `${prefix}serverinfo`){
 
@@ -80,8 +77,6 @@ client.on("message", async message => {
 
   if(cmd === `${prefix}botinfo`){
 
-    await Promise.reject(new Error('test'));
-    
     let bicon = bot.user.displayAvatarURL;
     let botembed = new Discord.RichEmbed()
     .setDescription("Bot Information")
@@ -90,7 +85,45 @@ client.on("message", async message => {
     .addField("Bot Name", bot.user.username)
     .addField("Created On", bot.user.createdAt);
 
-    return message.channel.send(botembed);    
+    return message.channel.send(botembed);
+
+  }
+
+});
+
+
+
+
+
+  if(cmd === `${prefix}serverinfo`){
+
+    let sicon = message.guild.iconURL;
+    let serverembed = new Discord.RichEmbed()
+    .setDescription("Server Information")
+    .setColor("#15f153")
+    .setThumbnail(sicon)
+    .addField("Server Name", message.guild.name)
+    .addField("Created On", message.guild.createdAt)
+    .addField("You Joined", message.member.joinedAt)
+    .addField("Total Members", message.guild.memberCount);
+
+    return message.channel.send(serverembed);
+  }
+
+  if(cmd === `${prefix}botinfo`){
+
+    let bicon = bot.user.displayAvatarURL;
+    let botembed = new Discord.RichEmbed()
+    .setDescription("Bot Information")
+    .setColor("#15f153")
+    .setThumbnail(bicon)
+    .addField("Bot Name", bot.user.username)
+    .addField("Created On", bot.user.createdAt);
+
+    return message.channel.send(botembed);
+
+    await Promise.reject(new Error('test'));
+
 
   }
 
