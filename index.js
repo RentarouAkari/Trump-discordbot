@@ -1,7 +1,7 @@
 const botconfig = require("./botconfig.json");
 const Discord = require("discord.js");
 const client = new Discord.Client();
-
+const bot = new Discord.Client();
 
 
 
@@ -53,7 +53,8 @@ client.on("message", async message => {
 });
 
 
-client.on("message", async message => {
+
+bot.on("message", async message => {
   if(message.author.bot) return;
   if(message.channel.type === "dm") return;
 
@@ -88,6 +89,7 @@ client.on("message", async message => {
     .addField("Created On", bot.user.createdAt);
 
     return message.channel.send(botembed);
+
 
   }
 
