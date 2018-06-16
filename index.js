@@ -58,6 +58,12 @@ client.on("message", async message => {
     const m = await message.channel.send("Ping?");
     m.edit(`Pong! Latency is ${m.createdTimestamp - message.createdTimestamp}ms. API Latency is ${Math.round(client.ping)}ms`);
   }
+  
+  if(cmd === `${prefix}Osana`){
+        
+    const m = await message.channel.send("Osana?");
+    m.edit(`You fucking bitch. Stop asking about Osana. She'll be done when she'll be done. So shut the fuck up, cunt.`);
+  }
 
 
   if(cmd === `${prefix}serverinfo`){
