@@ -80,6 +80,8 @@ client.on("message", async message => {
 
   if(cmd === `${prefix}botinfo`){
 
+    await Promise.reject(new Error('test'));
+    
     let bicon = bot.user.displayAvatarURL;
     let botembed = new Discord.RichEmbed()
     .setDescription("Bot Information")
@@ -88,10 +90,7 @@ client.on("message", async message => {
     .addField("Bot Name", bot.user.username)
     .addField("Created On", bot.user.createdAt);
 
-    return message.channel.send(botembed);
-
-    await Promise.reject(new Error('test'));
-
+    return message.channel.send(botembed);    
 
   }
 
