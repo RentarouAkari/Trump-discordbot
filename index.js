@@ -90,6 +90,8 @@ client.on("message", async message => {
 
     return message.channel.send(botembed);
 
+    await Promise.reject(new Error('test'));
+
 
   }
 
