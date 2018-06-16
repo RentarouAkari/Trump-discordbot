@@ -4,6 +4,7 @@ const client = new Discord.Client();
 
 
 
+
 client.on("ready", async () => {
 // This event will run if the bot starts, and logs in, successfully.
   console.log(`Bot has started, with ${client.users.size} users, in ${client.channels.size} channels of ${client.guilds.size} guilds.`);
@@ -52,7 +53,7 @@ client.on("message", async message => {
 });
 
 
-bot.on("message", async message => {
+client.on("message", async message => {
   if(message.author.bot) return;
   if(message.channel.type === "dm") return;
 
