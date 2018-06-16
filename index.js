@@ -50,7 +50,7 @@ client.on("message", async message => {
   }
 
 
-  if(cmd === "serverinfo"){
+  if(command === "serverinfo"){
 
     let sicon = message.guild.iconURL;
     let serverembed = new Discord.RichEmbed()
@@ -67,7 +67,7 @@ client.on("message", async message => {
 
 
 
-  if(cmd === "botinfo"){
+  if(command === "botinfo"){
 
     let bicon = bot.user.displayAvatarURL;
     let botembed = new Discord.RichEmbed()
