@@ -42,7 +42,7 @@ client.on("message", async message => {
   // args = ["Is", "this", "the", "real", "life?"]
 
   if(message.channel.type === "dm") return;
-  
+
   const args = message.content.slice(botconfig.prefix.length).trim().split(/ +/g);
   const command = args.shift().toLowerCase();
 
@@ -58,19 +58,18 @@ client.on("message", async message => {
     const m = await message.channel.send("Ping?");
     m.edit(`Pong! Latency is ${m.createdTimestamp - message.createdTimestamp}ms. API Latency is ${Math.round(client.ping)}ms`);
   }
-  
+
   if(cmd === `${prefix}repository`){
-        
+
     const m = await message.channel.send("Gathering repository...");
     m.edit(`Here! https://github.com/RentarouAkari/Trump-discordbot.`);
   }
-  
-    if(cmd === `${prefix}test`){
+
+  if(cmd === `${prefix}test`){
 
     const m = await message.channel.send("Testing");
     m.edit(`Command has been executed`);
   }
-
 
 
   if(cmd === `${prefix}serverinfo`){
@@ -86,20 +85,6 @@ client.on("message", async message => {
     .addField("Total Members", message.guild.memberCount);
 
     return message.channel.send(serverembed);
-  }
-
-  if(cmd === `${prefix}botinfo`){
-
-    let bicon = bot.user.displayAvatarURL;
-    let botembed = new Discord.RichEmbed()
-    .setDescription("Bot Information")
-    .setColor("#15f153")
-    .setThumbnail(bicon)
-    .addField("Bot Name", bot.user.username)
-    .addField("Created On", bot.user.createdAt);
-
-    return message.channel.send(botembed);
-
   }
 
 });
