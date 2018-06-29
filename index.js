@@ -64,6 +64,13 @@ client.on("message", async message => {
     const m = await message.channel.send("Gathering repository...");
     m.edit(`Here! https://github.com/RentarouAkari/Trump-discordbot.`);
   }
+  
+    if(cmd === `${prefix}test`){
+
+    const m = await message.channel.send("Testing");
+    m.edit(`Command has been executed`);
+  }
+
 
 
   if(cmd === `${prefix}serverinfo`){
