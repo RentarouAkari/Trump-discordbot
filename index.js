@@ -59,10 +59,10 @@ client.on("message", async message => {
     m.edit(`Pong! Latency is ${m.createdTimestamp - message.createdTimestamp}ms. API Latency is ${Math.round(client.ping)}ms`);
   }
   
-  if(cmd === `${prefix}Osana`){
+  if(cmd === `${prefix}repository`){
         
-    const m = await message.channel.send("Osana?");
-    m.edit(`You fucking bitch. Stop asking about Osana. She'll be done when she'll be done. So shut the fuck up, cunt.`);
+    const m = await message.channel.send("Gathering repository...");
+    m.edit(`Here! https://github.com/RentarouAkari/Trump-discordbot.`);
   }
 
 
